@@ -1,7 +1,7 @@
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
-
 import { join } from 'path';
-const folderPath = join(process.cwd(), 'src/fs/files');
+import { folderPath } from  './fsconst.js';
+
 const filePath = join(folderPath, 'fresh.txt');
 
 const create = async () => {
