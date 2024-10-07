@@ -1,5 +1,17 @@
+import { existsSync, readdirSync } from 'fs';
+import { folderPath } from  './fsconst.js';
+
 const list = async () => {
-    // Write your code here 
+    if (!existsSync(folderPath)) {
+        throw new Error('FS operation failed: files folder does not exist');
+    }
+
+    const filenames = readdirSync(folderPath);
+    console.log(filenames);
 };
 
-await list();
+try {
+    await list();
+} catch (err) {
+    console.error('\'\x1b[31m%s\x1b[0m\'', err.message);
+}
